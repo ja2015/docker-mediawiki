@@ -14,7 +14,7 @@ volumes:
 ## How to use
 
 ### Basic usage
-This image based from official mediawiki image.
+This image based from official mediawiki image.  
 See the fllowing link.  
 https://hub.docker.com/r/_/mediawiki/
 
