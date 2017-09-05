@@ -15,7 +15,7 @@ volumes:
 
 ### Basic usage
 This image based from official mediawiki image.
-See the fllowing link.
+See the fllowing link.  
 https://hub.docker.com/r/_/mediawiki/
 
 ### Additional Extension
