@@ -1,7 +1,9 @@
 FROM mediawiki:latest
 
 RUN a2enmod rewrite
-RUN apt-get install -y lua5.1
+ADD lua /usr/bin/
+RUN chmod 755 /usr/bin/lua
+
 # Extensions setup
 WORKDIR /var/www/html/extensions
 
