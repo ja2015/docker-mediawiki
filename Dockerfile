@@ -1,22 +1,26 @@
 FROM mediawiki:latest
 
 RUN a2enmod rewrite
-
+RUN apt-get install -y lua5.1
 # Extensions setup
 WORKDIR /var/www/html/extensions
 
-# Extension:UserMerge https://www.mediawiki.org/wiki/Extension:UserMerge
-RUN curl -fSL "https://extdist.wmflabs.org/dist/extensions/UserMerge-REL1_29-de5f67d.tar.gz" -o UserMerge.tar.gz \
-        && tar -xz -f UserMerge.tar.gz \
-        && rm UserMerge.tar.gz
-
-# Extension:MobileFrontend https://www.mediawiki.org/wiki/Extension:MobileFrontend
-RUN curl -fSL "https://extdist.wmflabs.org/dist/extensions/MobileFrontend-REL1_29-4f7aee1.tar.gz" -o MobileFrontend.tar.gz \
-        && tar -xz -f MobileFrontend.tar.gz \
-        && rm MobileFrontend.tar.gz
-
-# Extension:VisualEditor https://www.mediawiki.org/wiki/Extension:VisualEditor
-RUN git clone -b ${MEDIAWIKI_BRANCH} https://gerrit.wikimedia.org/r/p/mediawiki/extensions/VisualEditor.git \
+RUN git clone -b ${MEDIAWIKI_BRANCH} https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Scribunto.git \
+&& git clone -b ${MEDIAWIKI_BRANCH} https://gerrit.wikimedia.org/r/p/mediawiki/extensions/VisualEditor.git \
+&& git clone -b ${MEDIAWIKI_BRANCH} https://gerrit.wikimedia.org/r/p/mediawiki/extensions/UserMerge.git \
+&& git clone -b ${MEDIAWIKI_BRANCH} https://gerrit.wikimedia.org/r/p/mediawiki/extensions/MobileFrontend.git \
+&& git clone -b ${MEDIAWIKI_BRANCH} https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Popups.git \
+&& git clone -b ${MEDIAWIKI_BRANCH} https://gerrit.wikimedia.org/r/p/mediawiki/extensions/ApiFeatureUsage.git \
+&& git clone -b ${MEDIAWIKI_BRANCH} https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Collection.git \
+&& git clone -b ${MEDIAWIKI_BRANCH} https://gerrit.wikimedia.org/r/p/mediawiki/extensions/GlobalUsage.git \
+&& git clone -b ${MEDIAWIKI_BRANCH} https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CategoryTree.git \
+&& git clone -b ${MEDIAWIKI_BRANCH} https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CodeMirror.git \
+&& git clone -b ${MEDIAWIKI_BRANCH} https://gerrit.wikimedia.org/r/p/mediawiki/extensions/timeline.git \
+&& git clone -b ${MEDIAWIKI_BRANCH} https://gerrit.wikimedia.org/r/p/mediawiki/extensions/LabeledSectionTransclusion.git \
+&& git clone -b ${MEDIAWIKI_BRANCH} https://gerrit.wikimedia.org/r/p/mediawiki/extensions/RelatedArticles.git \
+&& git clone -b ${MEDIAWIKI_BRANCH} https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CodeEditor.git \
+&& git clone -b ${MEDIAWIKI_BRANCH} https://gerrit.wikimedia.org/r/p/mediawiki/extensions/TextExtracts.git \
+&& git clone -b ${MEDIAWIKI_BRANCH} https://gerrit.wikimedia.org/r/p/mediawiki/extensions/PageImages.git \
 && cd VisualEditor \
 && git submodule update --init
 
