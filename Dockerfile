@@ -73,4 +73,10 @@ RUN git clone -b ${MEDIAWIKI_BRANCH} https://gerrit.wikimedia.org/r/p/mediawiki/
 && cd VisualEditor \
 && git submodule update --init
 
+# Skins setup
+WORKDIR /var/www/html/skins
+
+RUN git clone https://gerrit.wikimedia.org/r/p/mediawiki/skins/MinervaNeue.git
+
+# Setup finish
 WORKDIR /var/www/html
