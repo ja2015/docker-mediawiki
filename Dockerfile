@@ -16,6 +16,8 @@ RUN curl -fSL "https://extdist.wmflabs.org/dist/extensions/MobileFrontend-REL1_2
         && rm MobileFrontend.tar.gz
 
 # Extension:VisualEditor https://www.mediawiki.org/wiki/Extension:VisualEditor
-RUN git clone -b ${MEDIAWIKI_BRANCH} https://gerrit.wikimedia.org/r/p/mediawiki/extensions/VisualEditor.git
+RUN git clone -b ${MEDIAWIKI_BRANCH} https://gerrit.wikimedia.org/r/p/mediawiki/extensions/VisualEditor.git \
+&& cd VisualEditor \
+&& git submodule update --init
 
 WORKDIR /var/www/html
