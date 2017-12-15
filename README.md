@@ -19,13 +19,18 @@ See the fllowing link.
 https://hub.docker.com/r/_/mediawiki/
 
 ### Additional Extension
-Usage of extensions are in the fllowing links.
-
-#### MobileFrontend
-https://www.mediawiki.org/wiki/Extension:MobileFrontend
-
-#### UserMerge
-https://www.mediawiki.org/wiki/Extension:UserMerge
-
-#### VisualEditor
-https://www.mediawiki.org/wiki/Extension:VisualEditor
+- CategoryTree
+- CodeEditor
+- CodeMirror
+- GeoData
+- DynamicPageList (Wikimedia)
+- LabeledSectionTransclusion
+- MobileFrontend
+- PageImages
+- Popups
+- RelatedArticles
+- Scribunto (Lua standalone)
+- TextExtracts
+- EasyTimeline
+- UserMerge
+- VisualEditor (Need Parsoid)
