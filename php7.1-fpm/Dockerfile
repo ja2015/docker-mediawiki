@@ -5,6 +5,8 @@ RUN apk add --no-cache \
 		git \
 		imagemagick \
 		icu-dev \
+		lua5.1 \
+		lua5.1-dev \
 		# Required for SyntaxHighlighting
 		python
 
@@ -47,10 +49,8 @@ RUN curl -fSL "https://releases.wikimedia.org/mediawiki/${MEDIAWIKI_MAJOR_VERSIO
 	&& rm mediawiki.tar.gz \
 	&& chown -R www-data:www-data extensions skins cache images
 
-	# Enable Lua
-ADD lua /usr/bin/
-RUN chmod 755 /usr/bin/lua
-
+# Lua
+RUN ln -s /usr/bin/lua5.1 /usr/bin/lua
 # Extensions setup
 WORKDIR /var/www/html/extensions
 
