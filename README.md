@@ -1,5 +1,5 @@
 # docker-mediawiki
-MediaWiki Docker image / With Additional Extension - MobileFrontend, UserMerge, VisualEditor -  
+MediaWiki Docker image / With Additional Extension  
 .htaccess is enabled.
 set the volume like below
 
