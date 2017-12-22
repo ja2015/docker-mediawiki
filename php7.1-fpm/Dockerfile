@@ -71,7 +71,9 @@ RUN git clone -b ${MEDIAWIKI_BRANCH} https://gerrit.wikimedia.org/r/p/mediawiki/
 && git clone -b ${MEDIAWIKI_BRANCH} https://gerrit.wikimedia.org/r/p/mediawiki/extensions/VisualEditor.git \
 && cd VisualEditor \
 && git submodule update --init \
-&& cd .. \
+&& cd lib/ve \
+&& rm -rf ./.git* ./LICENSE.txt ./README.md \
+&& cd /var/www/html/extensions \
 && rm -rf ./*/.git* ./*/LICENSE.txt ./*/README.md
 
 
