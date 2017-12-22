@@ -70,7 +70,10 @@ RUN git clone -b ${MEDIAWIKI_BRANCH} https://gerrit.wikimedia.org/r/p/mediawiki/
 && git clone -b ${MEDIAWIKI_BRANCH} https://gerrit.wikimedia.org/r/p/mediawiki/extensions/UserMerge.git \
 && git clone -b ${MEDIAWIKI_BRANCH} https://gerrit.wikimedia.org/r/p/mediawiki/extensions/VisualEditor.git \
 && cd VisualEditor \
-&& git submodule update --init
+&& git submodule update --init \
+&& cd .. \
+&& rm -rf ./*/.git* ./*/LICENSE.txt ./*/README.md
+
 
 # Skins setup
 WORKDIR /var/www/html/skins
