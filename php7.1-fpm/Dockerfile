@@ -78,7 +78,8 @@ RUN git clone -b ${MEDIAWIKI_BRANCH} https://gerrit.wikimedia.org/r/p/mediawiki/
 # Skins setup
 WORKDIR /var/www/html/skins
 
-RUN git clone https://gerrit.wikimedia.org/r/p/mediawiki/skins/MinervaNeue.git
+RUN git clone https://gerrit.wikimedia.org/r/p/mediawiki/skins/MinervaNeue.git \
+&& rm -rf ./*/.git* ./*/LICENSE.txt ./*/README.md
 
 # Setup finish
 VOLUME /var/www/html
